@@ -7,8 +7,19 @@ const ejsMate=require("ejs-mate");
 const ExpressError=require("./utils/expressError.js"); 
 const listings= require("./routes/listing.js");
 const reviews= require("./routes/reviews.js");
+const session= require("express-session");
+const flash= require("connect-flash");
 
-
+const sessionOptions={
+    secret: "secretcode",
+    resave: false,
+    saveUninitialized: true,
+    cookie:{
+        expires: Date.now() + 604800000,
+        maxAge: 604800000, 
+        httpOnly: true
+    }
+};
 const Mongo_URL="mongodb://127.0.0.1:27017/wanderlust";
 
 main().then(()=>{
@@ -28,13 +39,22 @@ app.use(methodOverride("_method"));
 app.engine('ejs',ejsMate);
 app.use(express.static(path.join(__dirname,"public")));
 
-app.use("/listings",listings);
-app.use("/listings/:id/reviews",reviews);
-
-
 app.get("/",(req,res)=>{
     res.send("Hello, I am working");    
 });
+
+app.use(session(sessionOptions));
+app.use(flash());
+
+app.use((req,res,next)=>{
+    res.locals.success = req.flash("success");
+    res.locals.error = req.flash("error");
+    next();
+})
+
+app.use("/listings",listings);
+app.use("/listings/:id/reviews",reviews);
+
 
 app.all("*",(req,res,next)=>{
     next(new ExpressError(404,"Page Not Found!!!"));

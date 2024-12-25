@@ -61,6 +61,11 @@ body{
 .listing-card{
     border: none !important;
     margin-bottom: 2rem;
+    opacity: 1;
+}
+
+.listing-card:hover{
+    opacity: 0.7;
 }
 
 .card-img-top{
@@ -82,13 +87,13 @@ body{
 }
 
 /* Card efect */
-.card-img-overlay{
+/* .card-img-overlay{
     opacity: 0;
 }
 .card-img-overlay:hover{
     opacity: 0.2;
     background-color: white;
-}
+} */
 
 .add-btn,.edit-btn{
     background-color:#fe424d !important;

@@ -7,6 +7,7 @@ const data = [
     price: 1500,
     location: "Malibu",
     country: "United States",
+    owner: "676d17a40a5b2a2a29dea785"
   },
   {
     title: "Modern Loft in Downtown",
@@ -16,6 +17,7 @@ const data = [
     price: 1200,
     location: "New York City",
     country: "United States",
+    owner: "676d17a40a5b2a2a29dea785"
   },
   {
     title: "Mountain Retreat",
@@ -25,6 +27,7 @@ const data = [
     price: 1000,
     location: "Aspen",
     country: "United States",
+    owner: "676d17a40a5b2a2a29dea785"
   },
   {
     title: "Historic Villa in Tuscany",
@@ -34,6 +37,7 @@ const data = [
     price: 2500,
     location: "Florence",
     country: "Italy",
+    owner: "676d17a40a5b2a2a29dea785"
   },
   {
     title: "Secluded Treehouse Getaway",
@@ -43,6 +47,7 @@ const data = [
     price: 800,
     location: "Portland",
     country: "United States",
+    owner: "676d17a40a5b2a2a29dea785"
   },
   {
     title: "Beachfront Paradise",
@@ -52,6 +57,7 @@ const data = [
     price: 2000,
     location: "Cancun",
     country: "Mexico",
+    owner: "676d17a40a5b2a2a29dea785"
   },
   {
     title: "Rustic Cabin by the Lake",
@@ -61,6 +67,7 @@ const data = [
     price: 900,
     location: "Lake Tahoe",
     country: "United States",
+    owner: "676d17a40a5b2a2a29dea785"
   },
   {
     title: "Luxury Penthouse with City Views",
@@ -70,6 +77,7 @@ const data = [
     price: 3500,
     location: "Los Angeles",
     country: "United States",
+    owner: "676d17a40a5b2a2a29dea785"
   },
   {
     title: "Ski-In/Ski-Out Chalet",
@@ -79,6 +87,7 @@ const data = [
     price: 3000,
     location: "Verbier",
     country: "Switzerland",
+    owner: "676d17a40a5b2a2a29dea785"
   },
   {
     title: "Safari Lodge in the Serengeti",
@@ -88,6 +97,7 @@ const data = [
     price: 4000,
     location: "Serengeti National Park",
     country: "Tanzania",
+    owner: "676d17a40a5b2a2a29dea785"
   },
   {
     title: "Historic Canal House",
@@ -97,6 +107,7 @@ const data = [
     price: 2800,
     location: "Amsterdam",
     country: "Netherlands",
+    owner: "676d17a40a5b2a2a29dea785"
   },
 ];
 module.exports= data;

@@ -9,9 +9,8 @@ const listingSchema = new Schema({
     },
     description: String,
     image: {
-      type:String,
-      default:"default_link",
-      set: (v) => v===""?"default_link":v
+      url: String,
+      filename: String
     },
     price: Number,
     location: String, 

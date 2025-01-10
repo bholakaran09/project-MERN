@@ -1,5 +1,4 @@
 const Listing=require("../models/listing");
-const ExpressError=require("../utils/expressError");
 
 module.exports.index= async (req,res)=>{
     const allListings=await Listing.find({});
@@ -38,10 +37,7 @@ module.exports.renderEditForm= async(req,res)=>{
 };
 
 module.exports.updateListing= async(req,res)=>{
-    let {id}= req.params;
-    // if(!req.body.listing){
-    //     throw new ExpressError(400,"Send valid data for listing");
-    // }   
+    let {id}= req.params;   
     let listing= await Listing.findByIdAndUpdate(id,{...req.body.listing});
     if(typeof req.file !== "undefined"){
         let url= req.file.path;
@@ -61,7 +57,6 @@ module.exports.destroyListing= async(req,res)=>{
 };
 
 module.exports.category=async (req, res)=>{
-    // const allListings=await Listing.find({});
     let {category}= req.body;
     let allListings=await Listing.find({category});
     res.render("listings/index.ejs",{allListings});
@@ -69,7 +64,6 @@ module.exports.category=async (req, res)=>{
 
 module.exports.search= async (req, res) => {
     const keyword = req.query.keyword;
-    // console.log('Query parameters:', req.query);
 
     if (!keyword) {
         return res.status(400).flash({ message: 'Keyword is required' });
@@ -87,7 +81,6 @@ module.exports.search= async (req, res) => {
             res.status(404).render("listings/error.ejs",{message:"No matching result found"});
         }
 
-        // res.json(searchResults);
         res.render("listings/index.ejs",{allListings:searchResults});
     } catch (error) {
         console.error('Error searching items:', error);

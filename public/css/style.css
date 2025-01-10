@@ -50,19 +50,11 @@ card__content--container p,card__content--container h2{
   margin-top: var(--flow-space, 1em);
 }
 
-/* CARD COMPONENT */
-
-
-/* .container{
-  flex:1;
-} */
-
 /*Navbar*/
 .navbar{
     height: 5rem ;
     width: 100%;
     background-color: white;
-    /* margin: 0 2rem; */
 }
 .form-input{
   display: inline !important;
@@ -80,7 +72,6 @@ card__content--container p,card__content--container h2{
 .btn-light{
   color: var(--white) !important; 
   background-color: var(--brand-color) !important;
-  /* border: none !im; */
   margin-left: 2px;
 }
 .btn-light:hover{
@@ -133,9 +124,6 @@ card__content--container p,card__content--container h2{
     background-color:#fe424d !important;
     border: none !important;
 }
-
-/* NavBar */
-
 
 /* Show Page */
 .show-img{

@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express=require('express');
 const app=express();
 const mongoose=require('mongoose');
@@ -15,6 +16,7 @@ const User = require('./models/user.js');
 const listingRouter= require("./routes/listing.js");
 const reviewRouter= require("./routes/reviews.js");
 const userRouter= require("./routes/user.js");
+const dbUrl= process.env.ATLASDB_URL;
 
 const store= MongoStore.create({
     mongoUrl: dbUrl,
@@ -40,7 +42,9 @@ const sessionOptions={
     }
 };
 // const Mongo_URL="mongodb://127.0.0.1:27017/wanderlust";
-const dbUrl= process.env.ATLASDB_URL;
+async function main(){
+    await mongoose.connect(dbUrl);
+}
 
 main().then(()=>{
     console.log("Connected to DB");
@@ -48,9 +52,6 @@ main().then(()=>{
     console.log(err);
 })
 
-async function main(){
-    await mongoose.connect(dbUrl);
-}
 
 app.set("view engine","ejs");
 app.set("views",path.join(__dirname,"views"));

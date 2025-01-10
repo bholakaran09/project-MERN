@@ -1,13 +1,39 @@
+<style>
+  .alert.fade {
+      transition: opacity 2s ease; /* Transition duration set to 2 seconds */
+  }
+</style>
+
 <% if(success && success.length ){ %>
-    <div class="alert alert-success alert-dismissible fade show col-6 offset-3" role="alert">
-        <%= success %>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
-<%}%>
+  <div id="successAlert" class="alert alert-success alert-dismissible fade show col-6 offset-3" role="alert">
+      <%= success %>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+<% } %>
 
 <% if(error && error.length ){ %>
-    <div class="alert alert-danger alert-dismissible fade show col-6 offset-3" role="alert">
-        <%= error %>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div> 
-<%}%>
+  <div id="errorAlert" class="alert alert-danger alert-dismissible fade show col-6 offset-3" role="alert">
+      <%= error %>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div> 
+<% } %>
+
+<script>
+  // Automatically dismiss success alert after 3 seconds
+  setTimeout(() => {
+      const successAlert = document.getElementById('successAlert');
+      if (successAlert) {
+successAlert.classList.remove('show');
+          successAlert.addEventListener('transitionend', () => successAlert.remove());
+      }
+  }, 2000);
+
+  // Automatically dismiss error alert after 3 seconds
+  setTimeout(() => {
+      const errorAlert = document.getElementById('errorAlert');
+      if (errorAlert) {
+          errorAlert.classList.remove('show');
+          errorAlert.addEventListener('transitionend', () => errorAlert.remove());
+      }
+  }, 2000);
+</script>

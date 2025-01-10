@@ -59,3 +59,38 @@ module.exports.destroyListing= async(req,res)=>{
     req.flash("success","Listing deleted");
     res.redirect("/listings");
 };
+
+module.exports.category=async (req, res)=>{
+    // const allListings=await Listing.find({});
+    let {category}= req.body;
+    let allListings=await Listing.find({category});
+    res.render("listings/index.ejs",{allListings});
+};
+
+module.exports.search= async (req, res) => {
+    const keyword = req.query.keyword;
+    // console.log('Query parameters:', req.query);
+
+    if (!keyword) {
+        return res.status(400).flash({ message: 'Keyword is required' });
+    }
+
+    try {
+        const searchResults = await Listing.find({
+            $or: [
+                { title: { $regex: keyword, $options: 'i' } }, // 'i' for case-insensitive
+                { description: { $regex: keyword, $options: 'i' } }
+            ]
+        });
+
+        if (searchResults.length === 0) {
+            res.status(404).render("listings/error.ejs",{message:"No matching result found"});
+        }
+
+        // res.json(searchResults);
+        res.render("listings/index.ejs",{allListings:searchResults});
+    } catch (error) {
+        console.error('Error searching items:', error);
+        res.status(500).render("listings/error.ejs",{message:"Internal Server Error "});
+    }
+};

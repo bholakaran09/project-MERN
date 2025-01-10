@@ -1,23 +1,95 @@
-body{
-        font-family: "Plus Jakarta Sans", serif !important;
-        display:flex;
-        flex-direction: column;
-        min-height: 100vh;
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@700&display=swap");
+
+:root {
+  /* Colors */
+  --brand-color: #FE424D;
+  --black: hsl(0, 0%, 0%);
+  --white: hsl(0, 0%, 100%);
+  /* Fonts */
+  --font-title: "Montserrat", sans-serif;
+  --font-text: "Lato", sans-serif;
 }
 
-.container{
-    flex:1;
+*,*::before,
+*::after {
+  box-sizing: border-box;
 }
+
+/* Remove default margin */
+body,h2,p {
+  margin: 0;
+}
+
+body{
+  background-image: url("https://th.bing.com/th/id/R.f0b1761f57ed2496b8ac7c662368138c?rik=pLoQvBq7TDHzHQ&riu=http%3a%2f%2f2.bp.blogspot.com%2f-Kq22XyMyiXI%2fUh8n1ndDboI%2fAAAAAAAABkg%2fqwI1726cxbE%2fs1600%2fBackground-Light5.jpg&ehk=5xiuBZoW2TTEyvbatPmdxV6M9IajatETOnpO%2f4IpysQ%3d&risl=&pid=ImgRaw&r=0");
+  background-attachment: fixed;
+  display:flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: var(--font-title);
+}
+h2 {
+  font-size: 2.25rem;
+  font-family: var(--font-title);
+  color: var(--white) !important;
+  line-height: 1.1;
+}
+
+p {
+  font-family: var(--font-text);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--white);
+}
+
+card__content--container p,card__content--container h2{
+  color: var(--white);
+}
+
+.flow > * + * {
+  margin-top: var(--flow-space, 1em);
+}
+
+/* CARD COMPONENT */
+
+
+/* .container{
+  flex:1;
+} */
 
 /*Navbar*/
 .navbar{
     height: 5rem ;
+    width: 100%;
     background-color: white;
+    /* margin: 0 2rem; */
 }
-
+.form-input{
+  display: inline !important;
+  height: 2.5rem;
+  width: 15rem !important;
+  border: 1px solid var(--brand-color) !important;
+}
+.form-input:focus{
+  box-shadow: 2px 2px 5px 2px var(--brand-color) !important;
+}
+.search-form{
+  width: 100%;
+  margin-left: 30vw;
+}
+.btn-light{
+  color: var(--white) !important; 
+  background-color: var(--brand-color) !important;
+  /* border: none !im; */
+  margin-left: 2px;
+}
+.btn-light:hover{
+  color: var(--black) !important;
+}
 .fa-compass{
-    color: #fe424d;
-    font-size: 2rem;
+  color: #fe424d;
+  font-size: 2rem;
+  margin-left: 2rem;
 }
 
 .nav-link{
@@ -56,49 +128,14 @@ body{
     align-items: space-evenly;  
 }
 
-/* Cards */
-
-.listing-card{
-    border: none !important;
-    margin-bottom: 2rem;
-    opacity: 1;
-}
-
-.listing-card:hover{
-    opacity: 0.7;
-}
-
-.card-img-top{
-    border-radius: 1rem !important;
-    width: 100% !important;
-    object-fit: cover !important;
-}
-
-.card-body{
-    padding: 0 !important;
-}
-
-.card-text p{
-    font-weight: 400;
-}
-
-.listing-link{
-    text-decoration: none;
-}
-
-/* Card efect */
-/* .card-img-overlay{
-    opacity: 0;
-}
-.card-img-overlay:hover{
-    opacity: 0.2;
-    background-color: white;
-} */
 
 .add-btn,.edit-btn{
     background-color:#fe424d !important;
     border: none !important;
 }
+
+/* NavBar */
+
 
 /* Show Page */
 .show-img{
@@ -114,14 +151,57 @@ body{
     padding-right:0;
 }
 
+/* Tax toggle and icons */
 
-* { box-sizing: border-box; }
+#filters{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-left: 1.3rem;
+
+ } 
+ .filter{
+  text-align: center;
+  margin-right: 2rem;
+  margin-top: 2rem;
+  color: var(--black);
+ }
+ .filter:hover{
+  color: var(--brand-color);
+  cursor: pointer; 
+ }
+ .filter p{
+  font-size: 1rem;
+  color: var(--black);
+ }
+ .filter p:hover{
+  color: var(--brand-color);
+ }
+ .filter button{
+  all:unset;
+ }
+ .show{
+  display: inline;
+ }
+ .hide{
+  display: none;
+ }
+ .tax-toggle{
+  border: 1px solid var(--brand-color);
+  border-radius: 1rem;
+  height: 3.5rem;
+  padding: 1rem;
+  margin-left: 2rem;
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+ }  
+/* Below code is for review emoji's */
 
 .container1 {
   background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/concrete-texture.png");
   display: flex;
   flex-wrap: wrap;
-  /* height: 100vh; */
   align-items: flex-start;
   justify-content: flex-start;
   padding: 0 130px;

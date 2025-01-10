@@ -15,6 +15,10 @@ router.route("/")
 //New Route
 router.get("/new",isLoggedIn,listingController.renderNewForm);
 
+router.post("/category",listingController.category);
+
+router.get('/search', listingController.search);
+
 router.route("/:id")
 .get(wrapAsync(listingController.showListing)) //show route
 .put(isLoggedIn,isOwner,upload.single("listing[image]"),validateListing,wrapAsync(listingController.updateListing)) //Update route

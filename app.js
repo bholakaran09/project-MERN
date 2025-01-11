@@ -61,9 +61,9 @@ app.engine('ejs',ejsMate);
 app.use(express.static(path.join(__dirname,"public")));
 app.use(express.json());
 
-// app.get("/",(req,res)=>{
-//     res.send("Hello, I am working");    
-// });
+app.get("/",(req,res)=>{
+    res.redirect("/listings");    
+});
 
 app.use(session(sessionOptions));
 app.use(flash());

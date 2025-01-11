@@ -2,7 +2,7 @@ const mongoose=require('mongoose');
 const initData =require("./data");
 const Listing=require("../models/listing");
 
-const Mongo_URL="mongodb://127.0.0.1:27017/wanderlust";
+const Mongo_URL="mongodb+srv://adamsmithok9:jGFGaGGBYIBpfJl0@cluster0.c63ef.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
 main().then(()=>{
     console.log("Connected to DB");
@@ -11,7 +11,10 @@ main().then(()=>{
 })
 
 async function main(){
-    await mongoose.connect(Mongo_URL);
+    await mongoose.connect(Mongo_URL,{
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+    });
 }
 
 const initDB=async ()=>{
